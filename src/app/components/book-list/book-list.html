@@ -1,1 +1,18 @@
-<h1> Benvingut a la llista de llibres </h1>
+<h1 class="text-2xl font-bold"> Benvingut a la llista de llibres: </h1>
+
+<ul class="space-y-3">
+  @for (book of bookService.myBooks(); track book.id) {
+    <li class="p-4 border rounded-lg shadow-sm hover:shadow-md transition-shadow">
+      
+      <a [routerLink]="['/books', book.id]" class="text-blue-600 hover:underline text-lg font-semibold">
+        {{ book.title }}
+      </a>
+
+      <p class="text-gray-600 text-sm">Autor: {{ book.author}}</p>
+      <p class="text-gray-600 text-sm">Categoria: {{ book.category }}</p>
+
+    </li>
+  } @empty {
+    <p>No hi ha llibres a la biblioteca.</p>
+  }
+</ul>

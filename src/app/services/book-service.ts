@@ -9,19 +9,19 @@ export class BookService {
             id: '1',
             title: 'IT',
             author: 'Stephen King',
-            category: 'Horror'
+            category: 'Terror'
         },
         {
             id: '2',
             title: 'La Puerta Oscura',
             author: 'David Lozano',
-            category: 'Ficcion'
+            category: 'Ficció'
         },
         {
             id: '3',
             title: 'Blood Meridian',
             author: 'Cormac McCarthy',
-            category: 'Western Novel'
+            category: 'Novel·la Western'
         },
     ])
 }
