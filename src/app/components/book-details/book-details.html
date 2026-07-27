@@ -1,2 +1,24 @@
-<h1> Benvingut als detalls dels llibres </h1>
+<h1 class=" text-2xl font-bold"> Benvingut als detalls dels llibres: </h1>
 
+@if (book) {
+  <div class="p-6 bg-white border rounded-lg shadow">
+    <h1 class="text-3xl font-bold mb-2">{{ book.title }}</h1>
+    <p class="text-xl text-gray-700">Autor: {{ book.author }}</p>
+    <p class="text-md text-gray-500 mt-1 mb-6">Categoria: <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">{{ book.category }}</span></p>
+
+    <button (click)="returnToList()" class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors cursor-pointer">
+      Tornar al llistat
+    </button>
+  </div>
+} 
+
+@else {
+  <div class="p-6 bg-red-50 border border-red-200 rounded-lg text-center">
+    <h2 class="text-2xl font-bold text-red-600 mb-2">Ups! Llibre no trobat</h2>
+    <p class="text-gray-700 mb-6">El llibre que busques no existeix a la nostra biblioteca.</p>
+    
+    <button (click)="returnToList()" class="px-4 py-2 bg-gray-600 text-white rounded hover:bg-gray-700 transition-colors cursor-pointer">
+      Tornar al llistat
+    </button>
+  </div>
+}
