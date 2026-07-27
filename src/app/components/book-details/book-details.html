@@ -1,10 +1,10 @@
 <h1 class=" text-2xl font-bold"> Benvingut als detalls dels llibres: </h1>
 
-@if (book) {
+@if (book(); as b) {
   <div class="p-6 bg-white border rounded-lg shadow">
-    <h1 class="text-3xl font-bold mb-2">{{ book.title }}</h1>
-    <p class="text-xl text-gray-700">Autor: {{ book.author }}</p>
-    <p class="text-md text-gray-500 mt-1 mb-6">Categoria: <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">{{ book.category }}</span></p>
+    <h1 class="text-3xl font-bold mb-2">{{ b.title }}</h1>
+    <p class="text-xl text-gray-700">Autor: {{ b.author }}</p>
+    <p class="text-md text-gray-500 mt-1 mb-6">Categoria: <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">{{ b.category }}</span></p>
 
     <button (click)="returnToList()" class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors cursor-pointer">
       Tornar al llistat

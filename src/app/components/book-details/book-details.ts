@@ -1,7 +1,7 @@
-import { Component, inject } from '@angular/core';
-import { ActivatedRoute, Router} from '@angular/router';
+import { Component, inject, input, computed} from '@angular/core';
+import { Router} from '@angular/router';
 import { BookService } from '../../services/book-service';
-import type { Book } from '../../models/book-interface';
+
 
 @Component({
   selector: 'app-book-details',
@@ -10,12 +10,13 @@ import type { Book } from '../../models/book-interface';
   styleUrl: './book-details.css',
 })
 export class BookDetails {
-  private activatedRoute = inject(ActivatedRoute);
   private router = inject(Router)
   private bookService = inject(BookService)
-  bookId = this.activatedRoute.snapshot.params['bookId'];
 
-  book: Book | undefined = this.bookService.myBooks().find(b => b.id === this.bookId)
+  bookId= input.required<string>();
+  book = computed(()=> {
+    return this.bookService.myBooks().find(b => b.id === this.bookId());
+  })
 
   returnToList(){
     this.router.navigate(['/books']);
